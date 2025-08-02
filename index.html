@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ritish Kumar | Portfolio</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg-color: #0f0c29;
+      --text-color: #f8fafc;
+      --card-bg: #1e1e2f;
+      --glow-purple: #9555cd;
+      --glow-pink: #b13a60;
+      --glow-blue: #4facfe;
+      --glow-dark: #0f0c29;
+      --glow-black: #000000;
+      --hero-bg: linear-gradient(135deg, #924ad1, #dc4977, #4facfe);
+      --button-glow: 0 0 10px #4facfe, 0 0 20px #4facfe, 0 0 30px #4facfe;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #f8fafc;
+      --text-color: #0f172a;
+      --card-bg: #e2e8f0;
+      --hero-bg: linear-gradient(135deg, #e0eafc, #cfdef3, #f6f9ff);
+      --button-glow: 0 0 10px #0ea5e9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(ellipse at bottom, var(--glow-dark) 0%, var(--glow-black) 100%);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: all 0.4s ease;
+    }
+
+    header {
+      padding: 20px 10%;
+      background: rgba(30, 41, 59, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--glow-blue);
+      cursor: pointer;
+      text-shadow: 0 0 10px var(--glow-blue);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--glow-blue);
+    }
+
+    .toggle-theme {
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 5px 12px;
+      background: var(--glow-blue);
+      color: #0f172a;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: var(--button-glow);
+    }
+
+    .toggle-theme:hover {
+      background: #0ea5e9;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: var(--hero-bg);
+      background-size: 400% 400%;
+      animation: glow-bg 10s ease infinite;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      box-shadow: 0 0 30px var(--glow-pink);
+    }
+
+    @keyframes glow-bg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--glow-blue);
+      box-shadow: 0 0 20px var(--glow-pink), 0 0 40px var(--glow-purple);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow: 0 0 10px var(--glow-pink), 0 0 20px var(--glow-purple);
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    #about, #projects, #contact {
+      background-color: rgba(15, 23, 42, 0.95);
+      border-radius: 15px;
+      margin: 40px auto;
+      max-width: 1100px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .project-card:hover {
+      transform: scale(1.02);
+      background: #334155;
+      box-shadow: 0 0 15px var(--glow-pink);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea, button {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background: var(--glow-blue);
+      color: #0f172a;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, box-shadow 0.3s;
+      box-shadow: var(--button-glow);
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    .resume-button {
+      margin-top: 20px;
+    }
+
+    .resume-button a {
+      display: inline-block;
+      background: var(--glow-blue);
+      color: #0f172a;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s, box-shadow 0.3s;
+      box-shadow: var(--button-glow);
+    }
+
+    .resume-button a:hover {
+      background: #0ea5e9;
+    }
+
+    .social-links {
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      color: var(--text-color);
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    .social-links svg {
+      vertical-align: middle;
+      margin-right: 6px;
+      fill: var(--text-color);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #1e293b;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("g6WMr3qbDexE6aGq6");
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_droytka', 'template_83vs64j', this)
+      .then(() => {
+        alert("Message sent successfully!");
+        this.reset();
+      }, (error) => {
+        alert("Failed to send message: " + JSON.stringify(error));
+      });
+  });
+</script>
+<body>
+  <header>
+    <h1 class="logo">Ritish Kumar</h1>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button></li>
+    </ul>
+  </header>
+
+  <section class="hero" id="hero">
+    <img src="IMG_2328.JPG" alt="Ritish Kumar" data-aos="fade-down" />
+    <h2 data-aos="fade-up">Hi, I'm Ritish 👋</h2>
+    <p data-aos="fade-up" data-aos-delay="200">A passionate Frontend Developer and Tech Enthusiast building responsive and engaging web experiences.</p>
+    <div class="resume-button" data-aos="fade-up" data-aos-delay="400">
+      <a href="ritish_resume.pdf" download>Download Resume</a>
+    </div>
+    <div class="social-links" data-aos="fade-up" data-aos-delay="600">
+  <a href="https://github.com/Ritzzgit" target="_blank">
+    <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.2 1.87.86 2.33.66.07-.52.28-.86.5-1.06-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.66 7.66 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.52-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+    </svg>
+    GitHub
+  </a>
+  <a href="https://linkedin.com/in/ritish-kumar-756742321" target="_blank">
+    <svg height="20" width="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.269c-.966 0-1.75-.793-1.75-1.768 0-.974.784-1.763 1.75-1.763s1.75.789 1.75 1.763c0 .975-.784 1.768-1.75 1.768zm13.5 11.269h-3v-5.604c0-3.368-4-3.109-4 0v5.604h-3v-10h3v1.401c1.396-2.586 7-2.777 7 2.476v6.123z"/>
+    </svg>
+    LinkedIn
+  </a>
+</div>
+  </section>
+
+  <section id="about" data-aos="fade-right">
+    <h2>About Me</h2>
+    <p>I am a Computer Science student with a passion for web development and mobile app development. I'm skilled in Android development and full stack web development. I love using technologies like React, GSAP, and AOS to build beautiful and interactive websites. I am also proficient in programming languages such as Python and Java.</p>
+  </section>
+
+  <section id="projects" data-aos="fade-left">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+      <p>A personal portfolio made using HTML, CSS, JavaScript, GSAP and AOS.</p>
+    </div>
+    <div class="project-card">
+      <h3>Weather App</h3>
+      <p>Built using OpenWeatherMap API, this app shows live weather updates based on location input.</p>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="zoom-in">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="5"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ritish Roshan Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    AOS.init();
+    gsap.from(".logo", { duration: 1, x: -100, opacity: 0 });
+    gsap.from(".nav-links li", { duration: 1, y: -20, opacity: 0, stagger: 0.2 });
+    gsap.from(".hero h2", { duration: 1, x: -100, opacity: 0, delay: 0.3 });
+    gsap.from(".hero p", { duration: 1, x: 100, opacity: 0, delay: 0.6 });
+
+    function toggleTheme() {
+      const root = document.documentElement;
+      const currentTheme = root.getAttribute("data-theme");
+      root.setAttribute("data-theme", currentTheme === "light" ? "dark" : "light");
+    }
+  </script>
+</body>
+</html>
+
+
+
