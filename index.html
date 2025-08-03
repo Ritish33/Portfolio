@@ -246,7 +246,24 @@
     }
   </style>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("g6WMr3qbDexE6aGq6");
+  })();
 
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_droytka', 'template_83vs64j', this)
+      .then(() => {
+        alert("Message sent successfully!");
+        this.reset();
+      }, (error) => {
+        alert("Failed to send message: " + JSON.stringify(error));
+      });
+  });
+</script>
 <body>
   <header>
     <h1 class="logo">Ritish Kumar</h1>
